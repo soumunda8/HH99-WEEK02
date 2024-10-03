@@ -24,7 +24,7 @@ public class CourseEntity {
     private Long lectureNo;
 
     @Column(nullable = false)
-    private Long userNo;
+    private Long userId;
 
     @Column(nullable = false)
     private LocalDateTime createDate;

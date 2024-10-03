@@ -9,7 +9,7 @@ public class Course {
 
     private Long courseNo;
     private Long lectureNo;
-    private Long userNo;
+    private Long userId;
     private LocalDateTime createDate;
 
 }
