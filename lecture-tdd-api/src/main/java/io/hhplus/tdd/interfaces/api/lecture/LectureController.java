@@ -41,8 +41,6 @@ public class LectureController {
             throw new IllegalArgumentException("강의 번호 누락");
         }
 
-        enrollmentFacade.validateEnrollment(userId, lectureNo);
-
         enrollmentFacade.enrollUser(userId, lectureNo);
 
         return "수강 신청 성공";
