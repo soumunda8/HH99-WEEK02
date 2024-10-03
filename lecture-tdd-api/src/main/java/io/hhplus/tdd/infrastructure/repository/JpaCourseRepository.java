@@ -4,4 +4,7 @@ import io.hhplus.tdd.domain.course.CourseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface JpaCourseRepository extends JpaRepository<CourseEntity, Long> {
+
+    boolean existsByUserIdAndLectureNo(long userId, long lectureNo);
+
 }
