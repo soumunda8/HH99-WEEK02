@@ -77,4 +77,25 @@ public class EnrollmentFacadeTest {
         assertEquals(30, updatedLectureEntity.getApplyCnt());
     }
 
+    // 통합 테스트 02 : 중복 수강 신청
+    @Test
+    public void testApplyMulti() {
+        // given
+        long userId = 1L;
+        long lectureNo = 1L;
+
+        // when
+        enrollmentFacade.enrollUser(userId, lectureNo);
+
+        for (int i = 0; i < 4; i++) {
+            IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+                enrollmentFacade.enrollUser(userId, lectureNo);
+            });
+            assertEquals("이미 신청된 강의", exception.getMessage());
+        }
+
+        boolean isEnrolled = jpaCourseRepository.existsByUserIdAndLectureNo(userId, lectureNo);
+        assertTrue(isEnrolled);
+    }
+
 }
