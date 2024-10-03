@@ -24,6 +24,11 @@ public class EnrollmentFacade {
         return lectureService.getLectureList();
     }
 
+    // 강의 신청 유무 확인
+    public void validateEnrollment(long userId, long lectureNo) {
+        courseService.validateEnrollment(userId, lectureNo);
+    }
+
     // 강의 등록
     @Transactional
     public void enrollUser(long userId, long lectureNo) {
