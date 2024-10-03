@@ -16,6 +16,7 @@ public class CourseService {
     }
 
     public void enrollUser(long userId, long lectureNo) {
+        validateEnrollment(userId, lectureNo);
         CourseEntity course = CourseEntity.builder()
                 .userId(userId)
                 .lectureNo(lectureNo)
@@ -23,6 +24,16 @@ public class CourseService {
                 .build();
 
         jpaCourseRepository.save(course);
+    }
+
+    public boolean checkUserAlreadyEnrolled(long userId, long lectureNo) {
+        return jpaCourseRepository.existsByUserIdAndLectureNo(userId, lectureNo);
+    }
+
+    public void validateEnrollment(long userId, long lectureNo) {
+        if (checkUserAlreadyEnrolled(userId, lectureNo)) {
+            throw new IllegalArgumentException("이미 신청된 강의");
+        }
     }
 
 }
