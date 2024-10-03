@@ -25,9 +25,6 @@ public class LectureData implements CommandLineRunner {
             for(int i = 0; i < 10; i++) {
                 LectureEntity lecture = LectureEntity.builder()
                         .lectureName(lectureNames[i])
-                        .startDate("2024-10-30")
-                        .applyStartDate("2024-10-04")
-                        .applyEndDate("2024-10-17")
                         .applyCnt(0)
                         .build();
 
