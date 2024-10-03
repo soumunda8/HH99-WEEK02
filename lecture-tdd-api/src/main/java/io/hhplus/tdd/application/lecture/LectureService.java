@@ -39,11 +39,6 @@ public class LectureService {
                 .orElseThrow(() -> new IllegalArgumentException("등록된 강의가 없음"));
     }
 
-    /*@Transactional
-    public void updateApplyCnt(long lectureNo) {
-        updateApplyCnt(lectureNo);
-    }*/
-
     @Transactional
     public void updateApplyCnt(long lectureNo) {
         LectureEntity lectureEntity = getLectureById(lectureNo);
