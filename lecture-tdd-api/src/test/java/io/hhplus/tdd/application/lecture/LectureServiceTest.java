@@ -70,7 +70,7 @@ public class LectureServiceTest {
                 .applyCnt(10)
                 .build();
 
-        when(jpaLectureRepository.findById(lecture.getLectureNo())).thenReturn(Optional.of(lecture));
+        when(jpaLectureRepository.findByIdWithLock(lecture.getLectureNo())).thenReturn(Optional.of(lecture));
 
         // when
         lectureService.updateApplyCnt(lecture.getLectureNo());
