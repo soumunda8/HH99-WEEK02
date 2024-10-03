@@ -27,7 +27,7 @@ public class EnrollmentFacade {
     // 강의 등록
     @Transactional
     public void enrollUser(long userId, long lectureNo) {
-        lectureService.processEnrollment(userId, lectureNo);
+        lectureService.updateApplyCnt(lectureNo);
         courseService.enrollUser(userId, lectureNo);
     }
 
